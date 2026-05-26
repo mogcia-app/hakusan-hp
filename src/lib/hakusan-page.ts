@@ -3,7 +3,7 @@ import path from "path";
 
 const extractedHtmlPath = path.join(
   process.cwd(),
-  "tmp",
+  "public",
   "hakusan-import",
   "hakusan.extracted.html",
 );

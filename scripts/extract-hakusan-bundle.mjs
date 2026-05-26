@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const inputPath = path.resolve(process.cwd(), "hakusan.html");
-const outputRoot = path.resolve(process.cwd(), "tmp", "hakusan-import");
+const outputRoot = path.resolve(process.cwd(), "public", "hakusan-import");
 const assetRoot = path.join(outputRoot, "assets");
 
 function readTagContent(source, type) {
@@ -107,19 +107,18 @@ function main() {
 
   fs.writeFileSync(path.join(outputRoot, "hakusan.extracted.html"), rewrittenTemplate);
 
-  const summary = {
-    extractedAt: new Date().toISOString(),
-    inputPath,
-    outputRoot,
-    assetCount: assetMap.size,
-  };
-
-  fs.writeFileSync(
-    path.join(outputRoot, "summary.json"),
-    `${JSON.stringify(summary, null, 2)}\n`,
+  console.log(
+    JSON.stringify(
+      {
+        extractedAt: new Date().toISOString(),
+        inputPath,
+        outputRoot,
+        assetCount: assetMap.size,
+      },
+      null,
+      2,
+    ),
   );
-
-  console.log(JSON.stringify(summary, null, 2));
 }
 
 main();
