@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-body:
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    "Noto Sans CJK JP",
+    sans-serif;
+  --font-heading:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "Noto Serif CJK JP",
+    "Times New Roman",
+    serif;
+  --latin:
+    "Avenir Next",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  --serif: var(--font-heading);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+    linear-gradient(135deg, #efe4d4 0%, #f8f4ed 48%, #e4ebe7 100%);
+  color: #1f1b16;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.font-serif {
+  font-family: var(--font-heading), serif;
+}

@@ -1,0 +1,614 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #faf8f4 0%, #f4efe8 100%);
+  color: #2b2521;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 62px 24px 96px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #6b5648;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.hero {
+  margin-top: 26px;
+  display: grid;
+  gap: 16px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #009a44;
+}
+
+.title {
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  max-width: 780px;
+}
+
+.memberSignupTitle {
+  font-size: clamp(24px, 3.6vw, 38px);
+}
+
+.lead {
+  max-width: 840px;
+  color: #6b5648;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.summaryBar {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.summaryCard {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(43, 37, 33, 0.08);
+  padding: 18px 20px;
+  box-shadow: 0 18px 40px rgba(43, 37, 33, 0.05);
+}
+
+.summaryLabel {
+  display: block;
+  color: #8c7561;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.summaryValue {
+  display: block;
+  margin-top: 8px;
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(43, 37, 33, 0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 24px 60px rgba(43, 37, 33, 0.05);
+}
+
+.section {
+  margin-top: 42px;
+}
+
+.searchPanel {
+  padding: 30px 30px 32px;
+}
+
+.searchPanelHeader {
+  display: grid;
+  gap: 8px;
+}
+
+.searchFilterForm {
+  margin-top: 22px;
+  display: grid;
+  gap: 20px;
+}
+
+.searchFilterGrid,
+.searchGuestGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.searchFilterRoomTypes,
+.searchFilterAmenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+}
+
+.checkItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #534740;
+  font-size: 13px;
+}
+
+.checkItem input {
+  width: 16px;
+  height: 16px;
+}
+
+.sectionTitle {
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.sectionLead {
+  margin-top: 10px;
+  color: #6b5648;
+  line-height: 1.95;
+  font-size: 14px;
+  max-width: 840px;
+}
+
+.grid {
+  margin-top: 26px;
+  display: grid;
+  gap: 24px;
+}
+
+.introCard {
+  overflow: hidden;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+}
+
+.introContent {
+  padding: 34px;
+}
+
+.visualPanel {
+  position: relative;
+  min-height: 320px;
+  background: #e6ece8;
+}
+
+.visualPanel::after {
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: -20px;
+  width: 58%;
+  height: 48%;
+  border: 1px solid var(--green);
+  z-index: -1;
+}
+
+.visualPanel .ph {
+  position: absolute;
+  inset: 0;
+}
+
+.roomCard {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.4fr) minmax(280px, 0.85fr);
+  background: #fff;
+  border: 1px solid rgba(43, 37, 33, 0.08);
+  overflow: hidden;
+  box-shadow: 0 24px 56px rgba(43, 37, 33, 0.05);
+}
+
+.roomVisual {
+  position: relative;
+  min-height: 100%;
+  background: #dfe6e0;
+}
+
+.roomVisual .ph {
+  position: absolute;
+  inset: 0;
+}
+
+.roomBody {
+  padding: 32px;
+}
+
+.roomMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #8c7561;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.roomBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: #f2f5f0;
+  color: #0b5a2e;
+}
+
+.priceBlock {
+  margin-top: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.priceBlockCompact {
+  margin-top: 14px;
+}
+
+.priceCaption {
+  color: #8c7561;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.priceMain {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  line-height: 1;
+  color: #2b2521;
+}
+
+.priceSub {
+  color: #6b5648;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.roomName {
+  margin-top: 12px;
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.roomDescription {
+  margin-top: 14px;
+  color: #534740;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.featureList {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feature {
+  padding: 8px 12px;
+  background: #f7f4ef;
+  color: #6b5648;
+  font-size: 12px;
+}
+
+.roomAside {
+  padding: 32px 28px;
+  border-left: 1px solid rgba(43, 37, 33, 0.08);
+  display: grid;
+  align-content: space-between;
+  gap: 20px;
+  background: linear-gradient(180deg, #faf8f4 0%, #f5f0e8 100%);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0b5a2e;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+
+.status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #009a44;
+}
+
+.statusLimited::before {
+  background: #d5a642;
+}
+
+.priceLabel {
+  color: #8c7561;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.priceValue {
+  margin-top: 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.priceUnit {
+  margin-top: 8px;
+  color: #6b5648;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 26px;
+  background: #009a44;
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #0b5a2e;
+  transform: translateY(-1px);
+}
+
+.buttonSecondary {
+  background: #fff;
+  color: #2b2521;
+  border: 1px solid rgba(43, 37, 33, 0.14);
+}
+
+.buttonSecondary:hover {
+  background: #f7f4ef;
+}
+
+.buttonGhost {
+  background: transparent;
+  color: #6b5648;
+  border: 1px solid rgba(43, 37, 33, 0.1);
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.authGrid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.authCard {
+  padding: 30px;
+}
+
+.authTitle {
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.authText {
+  margin-top: 12px;
+  color: #6b5648;
+  line-height: 1.9;
+  font-size: 14px;
+  max-width: 36em;
+}
+
+.authNotice {
+  margin-top: 14px;
+  color: #6b5648;
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 42em;
+}
+
+.authPricePanel {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: #f7f4ef;
+  display: grid;
+  gap: 6px;
+}
+
+.authHeroCard {
+  overflow: hidden;
+}
+
+.authHeroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+}
+
+.authHeroContent {
+  padding: 30px 32px;
+}
+
+.authHeroVisual {
+  position: relative;
+  min-height: 220px;
+  background: #e5ece6;
+}
+
+.authHeroVisual .ph {
+  position: absolute;
+  inset: 0;
+}
+
+.form {
+  margin-top: 22px;
+  display: grid;
+  gap: 18px;
+}
+
+.formSectionCard {
+  padding: 32px;
+}
+
+.formIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+  overflow: hidden;
+}
+
+.formIntroCopy {
+  padding: 30px 32px;
+}
+
+.formIntroVisual {
+  position: relative;
+  min-height: 220px;
+  background: #e4ebe6;
+}
+
+.formIntroVisual .ph {
+  position: absolute;
+  inset: 0;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid rgba(43, 37, 33, 0.14);
+  background: #fff;
+  font: inherit;
+  color: #2b2521;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.noteBox {
+  padding: 20px 22px;
+  background: #f7f4ef;
+  color: #6b5648;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 100%;
+}
+
+.confirmGrid {
+  margin-top: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.confirmRow {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-bottom: 1px solid rgba(43, 37, 33, 0.08);
+}
+
+.confirmKey,
+.confirmValue {
+  padding: 16px 0;
+}
+
+.confirmKey {
+  color: #8c7561;
+  font-size: 13px;
+}
+
+.completeCard {
+  margin-top: 28px;
+  padding: 36px;
+}
+
+.completeTitle {
+  font-family: "Noto Serif JP", "Yu Mincho", serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.completeText {
+  margin-top: 14px;
+  max-width: 52em;
+  color: #6b5648;
+  line-height: 1.9;
+}
+
+.demoTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: #eef8f1;
+  color: #0b5a2e;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.spacerTop {
+  margin-top: 22px;
+}
+
+@media (max-width: 920px) {
+  .introGrid,
+  .authHeroGrid,
+  .formIntro,
+  .summaryBar,
+  .authGrid,
+  .fieldGrid,
+  .roomCard,
+  .searchFilterGrid,
+  .searchGuestGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .visualPanel,
+  .authHeroVisual,
+  .formIntroVisual,
+  .roomVisual {
+    min-height: 220px;
+  }
+
+  .roomAside {
+    border-left: 0;
+    border-top: 1px solid rgba(43, 37, 33, 0.08);
+  }
+
+  .confirmRow {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmKey {
+    padding-bottom: 0;
+  }
+}
