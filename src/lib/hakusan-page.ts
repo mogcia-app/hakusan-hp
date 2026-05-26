@@ -74,7 +74,7 @@ function rewriteLongStayParagraph(source: string) {
 function rewriteConceptParagraphCopy(source: string) {
   return source.replace(
     "コインランドリーや会議室をご利用いただけます。観光のお客様には、島原城・島原温泉・雲仙へのアクセスの良さで、滞在の自由度を最大限に。",
-    "コインランドリーや会議室もご利用いただけます。<br>島原城・島原温泉・雲仙へのアクセスの良さで、滞在の自由度を最大限に。",
+    "フロント案内や会議室もご利用いただけます。<br>島原城・島原温泉・雲仙へのアクセスの良さで、滞在の自由度を最大限に。",
   );
 }
 

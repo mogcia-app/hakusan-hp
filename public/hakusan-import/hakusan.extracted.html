@@ -9801,6 +9801,11 @@ section.block{
 .feature-img{flex:1;min-height:200px}
 .feature.big .feature-img{min-height:340px}
 .feature-body{padding:22px 24px 28px}
+.feature:not(.big) .feature-body{
+  min-height: 152px;
+  display:grid;
+  align-content:start;
+}
 .feature .tag{
   font-family:var(--latin);
   font-size:11px;letter-spacing:.3em;
@@ -9831,6 +9836,7 @@ section.block{
   gap: clamp(28px, 4vw, 56px);
 }
 .access-map{aspect-ratio: 5/4;background:var(--off)}
+.access-map iframe{width:100%;height:100%;display:block;border:0}
 .access-info dl{
   display:grid;
   grid-template-columns: 110px 1fr;
@@ -9882,11 +9888,13 @@ section.block{
 .sights .linkmore{color:#fff;border-color:#9FD6B4}
 .sights-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap: clamp(14px, 2vw, 24px);
+  align-items:start;
 }
 .sight{display:flex;flex-direction:column;gap:12px}
 .sight-img{aspect-ratio:4/5;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.sight-img img{width:100%;height:100%;display:block;object-fit:cover}
 .sight-img.ph{background:
   repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 12px, rgba(255,255,255,.01) 12px 24px), rgba(255,255,255,.03);
   border-color:rgba(255,255,255,.1);
@@ -9897,7 +9905,46 @@ section.block{
 .sight h4{font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:.06em;line-height:1.5}
 .sight p{font-size:12.5px;color:#C9C0B0;line-height:1.8}
 .sight .dist{font-family:var(--latin);font-size:11px;letter-spacing:.2em;color:#9FD6B4;text-transform:uppercase}
+.sights-links{
+  margin-top: clamp(28px, 4vw, 44px);
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+.sights-link{
+  display:grid;
+  gap:10px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+}
+.sights-link h5{
+  margin:0;
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:500;
+  line-height:1.5;
+  color:#fff;
+}
+.sights-link p{
+  margin:0;
+  font-size:13px;
+  line-height:1.9;
+  color:#C9C0B0;
+}
+.sights-link .link-arrow{
+  font-size:13px;
+  font-weight:500;
+  line-height:1.7;
+  color:#F1ECE4;
+  letter-spacing:.04em;
+}
+@media (min-width: 861px){
+  .sight p{font-size:13px;line-height:1.9}
+}
 @media (max-width: 860px){.sights-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 860px){.sights-links{grid-template-columns:1fr}}
+@media (max-width: 640px){.sights-grid{grid-template-columns:1fr}}
 
 /* --- News --- */
 .news{background:var(--ivory)}
@@ -10256,7 +10303,7 @@ section.block{
       <div class="strength-num">01</div>
       <div>
         <h3>朝食 無料サービス</h3>
-        <p>和食・洋食・カレー／ピザトーストから選べる、ゆったり始まる朝。</p>
+        <p>和食でゆったり始まる朝。地元の食材を取り入れた、心づくしの朝食をご用意しております。</p>
       </div>
     </div>
     <div class="strength">
@@ -10299,7 +10346,7 @@ section.block{
           全40室のコンパクトな館内には、シングルからトリプルまで、ご滞在の目的にあわせた多様な客室をご用意しております。シングルにもセミダブルベッドを採用し、ツインルームは27㎡以上のゆとりある広さ。
         </p>
         <p>
-          連泊・長期滞在のお客様には、コインランドリーや会議室、各種ビジネスサポートをご利用いただけます。観光のお客様には、島原城・島原温泉・雲仙へのアクセスの良さで、滞在の自由度を最大限に。
+          連泊・長期滞在のお客様には、フロント案内や会議室、各種ビジネスサポートをご利用いただけます。観光のお客様には、島原城・島原温泉・雲仙へのアクセスの良さで、滞在の自由度を最大限に。
         </p>
         <div class="concept-sign">— 島原白山ホテル 支配人 —</div>
       </div>
@@ -10473,7 +10520,7 @@ section.block{
         <h2>朝食 と 館内施設</h2>
       </div>
       <p class="section-lead">
-        ご宿泊のお客様には、無料の朝食を毎朝ご用意。会議室・コインランドリー・宅配便など、長期滞在にも対応する設備をそろえております。
+        ご宿泊のお客様には、無料の朝食を毎朝ご用意。会議室・フロント案内・宅配便など、滞在を支える設備とサービスをそろえております。
       </p>
     </div>
 
@@ -10483,8 +10530,8 @@ section.block{
         <div class="feature-img ph" data-label="image · breakfast 16:10"></div>
         <div class="feature-body">
           <div class="tag">Breakfast · Free</div>
-          <h3>選べる朝の3つ</h3>
-          <p>和食・洋食・カレー or ピザトーストからお選びいただけます。地元の食材を取り入れた、心づくしの朝食でゆったりと一日をはじめてください。</p>
+          <h3>心づくしの和朝食</h3>
+          <p>和食のみのご提供となります。地元の食材を取り入れた、心づくしの朝食でゆったりと一日をはじめてください。</p>
         </div>
       </article>
 
@@ -10507,11 +10554,11 @@ section.block{
       </article>
 
       <article class="feature">
-        <div class="feature-img ph" data-label="image · laundry"></div>
+        <div class="feature-img ph" data-label="image · front desk"></div>
         <div class="feature-body">
-          <div class="tag">Laundry</div>
-          <h3>コインランドリー</h3>
-          <p>長期滞在のお客様にも便利。クリーニングサービスも。</p>
+          <div class="tag">Front Desk</div>
+          <h3>フロント案内</h3>
+          <p>観光案内や館内のご相談など、お気軽にフロントまでお声がけください。</p>
         </div>
       </article>
 
@@ -10544,7 +10591,15 @@ section.block{
     </div>
 
     <div class="access-grid">
-      <div class="access-map ph" data-label="map · embed google maps"></div>
+      <div class="access-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.655325910665!2d130.3706556756928!3d32.77487907366447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35406c392d94fb47%3A0xfebf6a7932fe6bf3!2z5bO25Y6f55m95bGx44Ob44OG44Or!5e0!3m2!1sja!2sjp!4v1779809803917!5m2!1sja!2sjp"
+          loading="lazy"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"
+          title="島原白山ホテルのGoogleマップ"
+        ></iframe>
+      </div>
       <div class="access-info">
         <dl>
           <dt>所在地</dt>
@@ -10583,40 +10638,47 @@ section.block{
         <div class="en">Around</div>
         <h2>島原を、歩く。</h2>
       </div>
-      <p class="section-lead">
-        城下町・湧水の街・温泉。<br>
-        ホテルから近距離で楽しめる、島原のスポットをご紹介します。
-      </p>
     </div>
 
     <div class="sights-grid">
       <a class="sight" href="#">
-        <div class="sight-img ph" data-label="image · castle 4:5"></div>
+        <div class="sight-img"><img src="/hakusan-import/assets/image/simabarajixyou.png" alt="島原城"></div>
         <div class="num">01</div>
         <h4>島原城</h4>
-        <span class="dist">CAR · 10 MIN</span>
-        <p>築城400年。雲仙を背景にそびえる白亜の名城。</p>
+        <span class="dist">CAR · 05 MIN</span>
+        <p>島原城は元和4年（1618年）から松倉豊後守重政が、当時森岳と呼ばれた高地を城のかたちに切りとって石垣を積み、堀を掘って7年の歳月を費やして築いたものです。現在は、天守閣がキリシタン史料並びに藩政時代の郷土資料・民俗資料などを展示しています。</p>
       </a>
       <a class="sight" href="#">
-        <div class="sight-img ph" data-label="image · spring water"></div>
+        <div class="sight-img"><img src="/hakusan-import/assets/image/yasiki.png" alt="武家屋敷"></div>
         <div class="num">02</div>
-        <h4>湧水庭園 四明荘</h4>
-        <span class="dist">CAR · 8 MIN</span>
-        <p>豊富な湧水と鯉が泳ぐ、水の都・島原の象徴。</p>
+        <h4>武家屋敷</h4>
+        <span class="dist">CAR · 10 MIN</span>
+        <p>現在、保存されている下の丁の武家屋敷は、延長406.8メートル、幅長5.6メートルの町並みで、山本邸の3軒が一般に無料開放され、当時の武家生活の様子が偲ばれます。</p>
       </a>
       <a class="sight" href="#">
-        <div class="sight-img ph" data-label="image · port / sea"></div>
+        <div class="sight-img"><img src="/hakusan-import/assets/image/gamadasu.png" alt="雲仙岳災害記念館（がまだすドーム）"></div>
         <div class="num">03</div>
-        <h4>島原港・有明海</h4>
-        <span class="dist">CAR · 2 MIN</span>
-        <p>熊本方面へのフェリー発着、夕陽の名所としても。</p>
+        <h4>雲仙岳災害記念館（がまだすドーム）</h4>
+        <span class="dist">CAR · 10 MIN</span>
+        <p>火山を見る・体験する・遊ぶ・学ぶ・憩う。火山に関する知的エンターテイメントがギッシリ詰まった一大空間。平成2年（1990年）11月に始まった雲仙・普賢岳の噴火活動から平成8年（1996年）5月の噴火活動終息宣言まで、何が起き、何が残ったのか。大自然の脅威とそれに立ち向かった人々の英知をあますところなく展示しています。</p>
       </a>
-      <a class="sight" href="#">
-        <div class="sight-img ph" data-label="image · unzen onsen"></div>
-        <div class="num">04</div>
-        <h4>雲仙温泉</h4>
-        <span class="dist">CAR · 35 MIN</span>
-        <p>地獄めぐりと名湯。日帰り入浴での足のばしに。</p>
+    </div>
+
+    <div class="sights-links">
+      <a class="sights-link" href="https://www.city.shimabara.lg.jp/" target="_blank" rel="noreferrer">
+        <h5>島原市</h5>
+        <p>島原市の観光ガイド、年間行事予定などの案内</p>
+        <span class="link-arrow">公式サイトへ →</span>
+      </a>
+      <a class="sights-link" href="https://shimabaraonsen.com/" target="_blank" rel="noreferrer">
+        <h5>島原温泉観光ビューロー</h5>
+        <p>島原の最新情報や観光情報、お土産品などの紹介</p>
+        <span class="link-arrow">公式サイトへ →</span>
+      </a>
+      <a class="sights-link" href="https://www.unzen-geopark.jp/" target="_blank" rel="noreferrer">
+        <h5>島原半島ジオパーク</h5>
+        <p>島原市は世界ジオパークとして認定されています</p>
+        <span class="link-arrow">公式サイトへ →</span>
       </a>
     </div>
   </div>
@@ -10714,7 +10776,7 @@ section.block{
         </button>
         <div class="faq-a">
           <span class="mark">A</span>
-          <p>朝食は6:30から9:30までご利用いただけます。和食・洋食・カレー or ピザトーストから、当日お好きなメニューをお選びください。ご宿泊のお客様は無料でご利用いただけます。</p>
+          <p>朝食は6:30から9:30までご利用いただけます。和食のみのご提供となります。ご宿泊のお客様は無料でご利用いただけます。</p>
           <span></span>
         </div>
       </div>
