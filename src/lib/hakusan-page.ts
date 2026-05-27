@@ -34,6 +34,11 @@ type HakusanFaqPageContent = {
   styleText: string;
 };
 
+type HakusanAccessPageContent = {
+  bodyHtml: string;
+  styleText: string;
+};
+
 export const bookingWidgetMarker = "<!-- HAKUSAN_BOOKING_WIDGET -->";
 
 function matchOrThrow(source: string, pattern: RegExp, label: string) {
@@ -56,7 +61,7 @@ function rewriteHeaderNav(source: string) {
     `<nav class="nav" id="nav">
       <a href="/guide">総合案内</a>
       <a href="/rooms">客室案内</a>
-      <a href="#access">交通アクセス</a>
+      <a href="/access">交通アクセス</a>
       <a href="/faq">よくある質問</a>
       <a class="cta-reserve" href="#reserve">ご予約 <span class="arr">→</span></a>
     </nav>`,
@@ -97,8 +102,8 @@ function rewriteConceptImage(source: string) {
 
 function rewriteHeaderLogo(source: string) {
   return source.replace(
-    '/hakusan-import/assets/8e10bf65-4c59-4d64-8e9b-7732edd6c5a2.png',
     '/hakusan-import/assets/48113283-549f-4326-9868-d8c44ef27a6e.png',
+    '/hakusan-import/assets/8e10bf65-4c59-4d64-8e9b-7732edd6c5a2.png',
   );
 }
 
@@ -707,7 +712,7 @@ function rewriteChromeLinksForSubpage(source: string) {
     .replaceAll('href="#rooms"', 'href="/rooms"')
     .replaceAll('href="#plans"', 'href="/rooms#plans"')
     .replaceAll('href="#features"', 'href="/#features"')
-    .replaceAll('href="#access"', 'href="/#access"')
+    .replaceAll('href="#access"', 'href="/access"')
     .replaceAll('href="#sights"', 'href="/#sights"')
     .replaceAll('href="#faq"', 'href="/#faq"')
     .replaceAll('href="#news"', 'href="/#news"')
@@ -1038,6 +1043,27 @@ export function getHakusanFaqPageContent(): HakusanFaqPageContent {
           </section>
         </div>
       </section>
+    `,
+    styleText,
+  };
+}
+
+export function getHakusanAccessPageContent(): HakusanAccessPageContent {
+  const html = fs.readFileSync(extractedHtmlPath, "utf8");
+  const styleText = getStyleText(html);
+  const bodyHtml = getTransformedBodyHtml();
+  const accessSection = getSectionHtml(bodyHtml, "access");
+
+  return {
+    bodyHtml: `
+      <section class="page-intro">
+        <div class="page-intro-inner">
+          <div class="en">Access</div>
+          <h1>交通アクセス</h1>
+          <p>島原港や島原鉄道からのアクセス、所在地、周辺への移動目安をご案内しています。</p>
+        </div>
+      </section>
+      ${accessSection}
     `,
     styleText,
   };

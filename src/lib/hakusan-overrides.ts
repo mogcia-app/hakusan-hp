@@ -3,6 +3,29 @@ export const hakusanSharedOverride = `
     display: none;
   }
 
+  .header .brand-mark img,
+  .footer .brand-mark img{
+    filter: contrast(1.08) saturate(1.04);
+  }
+
+  .header .brand-name .ja{
+    color: #1b5b3a;
+    font-weight: 600;
+  }
+
+  .header .brand-name .en{
+    color: #3a7a58;
+  }
+
+  .footer .brand-name .ja{
+    color: #dff3e8;
+    font-weight: 600;
+  }
+
+  .footer .brand-name .en{
+    color: #9fd6b4;
+  }
+
   .header .cta-reserve{
     position: relative;
     display: inline-flex;
