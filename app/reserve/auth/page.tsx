@@ -6,6 +6,7 @@ import {
   getSearchFromParams,
   getNightCount,
   getRoomById,
+  getRoomImageSrc,
 } from "@/lib/reservation-demo";
 
 type PageProps = {
@@ -16,6 +17,7 @@ export default function ReserveAuthPage({ searchParams }: PageProps) {
   const search = getSearchFromParams(searchParams);
   const roomType = typeof searchParams.roomType === "string" ? searchParams.roomType : undefined;
   const room = getRoomById(roomType);
+  const roomImage = getRoomImageSrc(room.id);
   const nights = getNightCount(search.checkin, search.checkout);
   const estimatedPrice = room.priceFrom * nights * Number(search.rooms || "1");
 
@@ -49,7 +51,11 @@ export default function ReserveAuthPage({ searchParams }: PageProps) {
               </div>
             </div>
             <div className={styles.authHeroVisual}>
-              <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+              {roomImage ? (
+                <img src={roomImage} alt={room.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              ) : (
+                <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+              )}
             </div>
           </div>
         </div>

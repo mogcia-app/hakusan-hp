@@ -377,6 +377,15 @@ export function getRoomById(id?: string | null) {
   return roomTypes.find((room) => room.id === id) ?? roomTypes[0];
 }
 
+export function getRoomImageSrc(roomId?: string | null) {
+  if (!roomId) return null;
+  if (roomId.startsWith("single-a")) return "/hakusan-import/assets/image/sa.png";
+  if (roomId.startsWith("single-b")) return "/hakusan-import/assets/image/sb.png";
+  if (roomId.startsWith("twin-b")) return "/hakusan-import/assets/image/tb.png";
+  if (roomId.startsWith("triple")) return "/hakusan-import/assets/image/4.png";
+  return null;
+}
+
 export function getTotalGuests(search: ReservationSearch) {
   return (
     toNumber(search.adults) +

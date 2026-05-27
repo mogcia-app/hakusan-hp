@@ -1,5 +1,5 @@
 import { ReserveShell, reserveStyles as styles } from "@/components/reserve/ReserveShell";
-import { formatCurrency, getNightCount, getRoomById, getSearchFromParams } from "@/lib/reservation-demo";
+import { formatCurrency, getNightCount, getRoomById, getRoomImageSrc, getSearchFromParams } from "@/lib/reservation-demo";
 
 type PageProps = {
   searchParams: Record<string, string | string[] | undefined>;
@@ -9,6 +9,7 @@ export default function MemberSignupPage({ searchParams }: PageProps) {
   const search = getSearchFromParams(searchParams);
   const roomType = typeof searchParams.roomType === "string" ? searchParams.roomType : undefined;
   const room = getRoomById(roomType);
+  const roomImage = getRoomImageSrc(room.id);
   const nights = getNightCount(search.checkin, search.checkout);
   const estimatedPrice = room.priceFrom * nights * Number(search.rooms || "1");
 
@@ -27,7 +28,7 @@ export default function MemberSignupPage({ searchParams }: PageProps) {
               {room.name}
             </h2>
             <p className={styles.sectionLead}>
-              登録完了後、そのまま確認画面へお進みいただけます。右側には客室イメージを掲載できるようにしています。
+              登録完了後、そのまま確認画面へお進みいただけます。選択中の客室内容もあわせてご確認ください。
             </p>
             <div className={`${styles.priceBlock} ${styles.priceBlockCompact}`}>
               <span className={styles.priceCaption}>Estimated stay price</span>
@@ -36,7 +37,11 @@ export default function MemberSignupPage({ searchParams }: PageProps) {
             </div>
           </div>
           <div className={styles.formIntroVisual}>
-            <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+            {roomImage ? (
+              <img src={roomImage} alt={room.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            ) : (
+              <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+            )}
           </div>
         </div>
 

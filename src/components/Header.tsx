@@ -1,8 +1,8 @@
 const navItems = [
-  { href: "#guide", label: "総合案内" },
+  { href: "/guide", label: "総合案内" },
   { href: "#rooms", label: "客室案内" },
   { href: "#access", label: "交通アクセス" },
-  { href: "#faq", label: "よくある質問" },
+  { href: "/faq", label: "よくある質問" },
 ];
 
 export function Header() {

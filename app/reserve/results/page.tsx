@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReserveShell, reserveStyles as styles } from "@/components/reserve/ReserveShell";
-import { buildReservationQuery, getAvailableRooms, getSearchFromParams } from "@/lib/reservation-demo";
+import { buildReservationQuery, getAvailableRooms, getRoomById, getRoomImageSrc, getSearchFromParams } from "@/lib/reservation-demo";
 
 type PageProps = {
   searchParams: Record<string, string | string[] | undefined>;
@@ -9,6 +9,19 @@ type PageProps = {
 export default function ReserveResultsPage({ searchParams }: PageProps) {
   const search = getSearchFromParams(searchParams);
   const availableRooms = getAvailableRooms(search);
+  const displayedRooms = availableRooms.map((room, index) => {
+    if (room.id === "twin-a-smoking") {
+      return {
+        key: `${room.id}-${index}`,
+        room: getRoomById("single-a-smoking"),
+      };
+    }
+
+    return {
+      key: `${room.id}-${index}`,
+      room,
+    };
+  });
 
   return (
     <ReserveShell
@@ -175,16 +188,25 @@ export default function ReserveResultsPage({ searchParams }: PageProps) {
         </p>
 
         <div className={styles.grid}>
-          {availableRooms.map((room) => {
+          {displayedRooms.map(({ key, room }) => {
             const href = `/reserve/auth?${buildReservationQuery({
               ...search,
               roomType: room.id,
             })}`;
+            const roomImage = getRoomImageSrc(room.id);
 
             return (
-              <article key={room.id} className={styles.roomCard}>
+              <article key={key} className={styles.roomCard}>
                 <div className={styles.roomVisual}>
-                  <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+                  {roomImage ? (
+                    <img
+                      src={roomImage}
+                      alt={room.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  ) : (
+                    <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+                  )}
                 </div>
 
                 <div className={styles.roomBody}>

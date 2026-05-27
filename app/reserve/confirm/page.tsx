@@ -7,6 +7,7 @@ import {
   getSearchFromParams,
   getNightCount,
   getRoomById,
+  getRoomImageSrc,
 } from "@/lib/reservation-demo";
 
 type PageProps = {
@@ -21,6 +22,7 @@ function getParam(searchParams: PageProps["searchParams"], key: string) {
 export default function ReserveConfirmPage({ searchParams }: PageProps) {
   const search = getSearchFromParams(searchParams);
   const room = getRoomById(getParam(searchParams, "roomType"));
+  const roomImage = getRoomImageSrc(room.id);
   const mode = getParam(searchParams, "mode");
   const fullName = `${getParam(searchParams, "lastName")} ${getParam(searchParams, "firstName")}`.trim();
   const nights = getNightCount(search.checkin, search.checkout);
@@ -58,7 +60,11 @@ export default function ReserveConfirmPage({ searchParams }: PageProps) {
                 </div>
               </div>
               <div className={styles.formIntroVisual}>
-                <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+                {roomImage ? (
+                  <img src={roomImage} alt={room.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                ) : (
+                  <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+                )}
               </div>
             </div>
           </div>

@@ -56,6 +56,21 @@ export const hakusanSharedOverride = `
 `;
 
 export const hakusanSectionOverride = `
+  .reserve{
+    background:
+      linear-gradient(rgba(12, 84, 48, .86), rgba(12, 84, 48, .86)),
+      url("/hakusan-import/assets/image/hakusancta.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .reserve::before{
+    background:
+      radial-gradient(800px 400px at 80% 30%, rgba(0,154,68,.26), transparent 60%),
+      radial-gradient(600px 400px at 10% 80%, rgba(255,255,255,.08), transparent 60%);
+  }
+
   .concept-text h3{
     font-size: clamp(19px, 2vw, 26px);
     margin-bottom: 20px;
@@ -233,7 +248,7 @@ export const hakusanSectionOverride = `
   }
 
   .page-intro{
-    padding: clamp(64px, 8vw, 108px) var(--pad) clamp(28px, 4vw, 44px);
+    padding: clamp(64px, 8vw, 108px) var(--pad) clamp(10px, 2vw, 18px);
     background:
       linear-gradient(180deg, rgba(248, 245, 239, .82) 0%, rgba(255, 255, 255, 0) 100%);
   }
@@ -265,6 +280,215 @@ export const hakusanSectionOverride = `
     line-height: 1.95;
   }
 
+  .faq-intro{
+    padding-top: clamp(28px, 4vw, 48px);
+  }
+
+  .page-intro + .plans{
+    padding-top: clamp(18px, 3vw, 28px);
+  }
+
+  .guide-page{
+    padding: clamp(56px, 7vw, 96px) var(--pad) clamp(72px, 8vw, 112px);
+  }
+
+  .guide-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    gap: 44px;
+  }
+
+  .guide-header .en,
+  .guide-section-head .en{
+    font-family: var(--latin);
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  .guide-header{
+    display: grid;
+    gap: 14px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(120, 101, 84, .14);
+  }
+
+  .guide-header h1{
+    font-family: var(--serif);
+    font-size: clamp(34px, 4vw, 54px);
+    line-height: 1.25;
+    font-weight: 500;
+  }
+
+  .guide-header p{
+    color: rgba(60, 47, 38, .82);
+    line-height: 1.95;
+  }
+
+  .guide-section{
+    display: grid;
+    gap: 24px;
+  }
+
+  .guide-section-head{
+    display: grid;
+    gap: 10px;
+  }
+
+  .guide-section h2{
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .guide-table{
+    display: grid;
+    gap: 0;
+    border-top: 1px solid rgba(120, 101, 84, .12);
+  }
+
+  .guide-row{
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 18px 28px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(120, 101, 84, .12);
+  }
+
+  .guide-row dt{
+    font-weight: 600;
+    color: #2f2721;
+    line-height: 1.8;
+  }
+
+  .guide-row dd{
+    margin: 0;
+    color: rgba(60, 47, 38, .86);
+    line-height: 1.9;
+  }
+
+  .guide-block{
+    display: grid;
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(120, 101, 84, .12);
+  }
+
+  .guide-block + .guide-block{
+    margin-top: 4px;
+  }
+
+  .guide-block h3{
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .guide-block p{
+    color: rgba(60, 47, 38, .82);
+    line-height: 1.85;
+  }
+
+  .guide-list{
+    margin: 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 8px;
+    color: rgba(60, 47, 38, .9);
+    line-height: 1.8;
+  }
+
+  .guide-note{
+    color: rgba(60, 47, 38, .84);
+    line-height: 1.95;
+  }
+
+  .faq-page{
+    padding: 0 var(--pad) clamp(72px, 8vw, 112px);
+  }
+
+  .faq-page-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    gap: 42px;
+  }
+
+  .faq-page-group{
+    display: grid;
+    gap: 18px;
+  }
+
+  .faq-page-group-head{
+    display: grid;
+    gap: 10px;
+  }
+
+  .faq-page-group-head .en{
+    font-family: var(--latin);
+    color: var(--green);
+    letter-spacing: .18em;
+    font-size: 12px;
+  }
+
+  .faq-page-group h2{
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .faq-page-entry{
+    display: grid;
+    gap: 12px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(120, 101, 84, .12);
+  }
+
+  .faq-page-q,
+  .faq-page-a{
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  .faq-page-q{
+    color: #2f2721;
+  }
+
+  .faq-page-mark{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 10px;
+    border: 1px solid rgba(49, 85, 63, .14);
+    background: rgba(49, 85, 63, .05);
+    color: #31553f;
+    font-family: var(--latin);
+    font-size: 12px;
+    letter-spacing: .16em;
+  }
+
+  .faq-page-q .faq-page-text{
+    font-family: var(--serif);
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.7;
+  }
+
+  .faq-page-a .faq-page-text{
+    color: rgba(60, 47, 38, .86);
+    line-height: 1.95;
+  }
+
+  .faq-page-text p{
+    margin: 0;
+  }
+
   @media (max-width: 920px){
     .plan-rooms{
       grid-template-columns: 1fr;
@@ -276,6 +500,17 @@ export const hakusanSectionOverride = `
 
     .plan-thumb{
       min-height: 180px;
+    }
+
+    .guide-row{
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .faq-page-q,
+    .faq-page-a{
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
   }
 `;

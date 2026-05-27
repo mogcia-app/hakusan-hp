@@ -1,5 +1,5 @@
 import { ReserveShell, reserveStyles as styles } from "@/components/reserve/ReserveShell";
-import { formatCurrency, getNightCount, getRoomById, getSearchFromParams } from "@/lib/reservation-demo";
+import { formatCurrency, getNightCount, getRoomById, getRoomImageSrc, getSearchFromParams } from "@/lib/reservation-demo";
 
 type PageProps = {
   searchParams: Record<string, string | string[] | undefined>;
@@ -9,6 +9,7 @@ export default function GuestReservationPage({ searchParams }: PageProps) {
   const search = getSearchFromParams(searchParams);
   const roomType = typeof searchParams.roomType === "string" ? searchParams.roomType : undefined;
   const room = getRoomById(roomType);
+  const roomImage = getRoomImageSrc(room.id);
   const nights = getNightCount(search.checkin, search.checkout);
   const estimatedPrice = room.priceFrom * nights * Number(search.rooms || "1");
 
@@ -27,7 +28,7 @@ export default function GuestReservationPage({ searchParams }: PageProps) {
               {room.name}
             </h2>
             <p className={styles.sectionLead}>
-              会員登録せずに予約するケースを想定した導線です。あとから客室写真を入れられるよう、右側にプレースホルダーを置いています。
+              会員登録せずに予約するケースを想定した導線です。選択中の客室内容をご確認のうえ、必要事項をご入力ください。
             </p>
             <div className={`${styles.priceBlock} ${styles.priceBlockCompact}`}>
               <span className={styles.priceCaption}>Estimated stay price</span>
@@ -36,7 +37,11 @@ export default function GuestReservationPage({ searchParams }: PageProps) {
             </div>
           </div>
           <div className={styles.formIntroVisual}>
-            <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+            {roomImage ? (
+              <img src={roomImage} alt={room.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            ) : (
+              <div className="ph" data-label={`image placeholder · ${room.name}`}></div>
+            )}
           </div>
         </div>
 

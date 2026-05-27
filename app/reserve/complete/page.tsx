@@ -6,6 +6,7 @@ import {
   getSearchFromParams,
   getNightCount,
   getRoomById,
+  getRoomImageSrc,
 } from "@/lib/reservation-demo";
 
 type PageProps = {
@@ -34,6 +35,7 @@ function formatAcceptedAt() {
 export default function ReserveCompletePage({ searchParams }: PageProps) {
   const search = getSearchFromParams(searchParams);
   const room = getRoomById(getParam(searchParams, "roomType"));
+  const roomImage = getRoomImageSrc(room.id);
   const nights = getNightCount(search.checkin, search.checkout);
   const estimatedPrice = room.priceFrom * nights * Number(search.rooms || "1");
   const fullName = getParam(searchParams, "fullName") || "ご予約者様";
@@ -57,6 +59,12 @@ export default function ReserveCompletePage({ searchParams }: PageProps) {
             {fullName} 様のご予約として、{room.name} / {formatStayDate(search.checkin)} チェックイン /
             {formatStayDate(search.checkout)} チェックアウトのお手続きが完了しました。
           </p>
+
+          {roomImage ? (
+            <div className={styles.formIntroVisual} style={{ marginTop: "24px" }}>
+              <img src={roomImage} alt={room.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+          ) : null}
 
           <div className={styles.confirmGrid}>
             <div className={styles.confirmRow}>
